@@ -1,0 +1,1 @@
+- [Next app validator migration](next-app-validator.md) — this mixed Vite-to-Next workspace needs a narrow exclusion for Next's stale generated route validator.
