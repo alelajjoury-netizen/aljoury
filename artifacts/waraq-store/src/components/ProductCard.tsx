@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Heart, Leaf, Plus } from 'lucide-react';
+import { Droplets, Heart, Leaf, Plus } from 'lucide-react';
 import { PlantArt } from './PlantArt';
 
 export type Product = {
@@ -11,6 +11,7 @@ export type Product = {
   price: number;
   originalPrice?: number;
   care?: string;
+  wateringGuide?: string;
   art: 'monstera' | 'snake' | 'pothos' | 'pot' | 'kit';
   colors?: { name: string; hex: string }[];
 };
@@ -38,6 +39,10 @@ export function ProductCard({ product, onAdd, onFavorite }: Props) {
         </span>
       </div>
       <p className="installment">أو 4 دفعات بقيمة {(product.price / 4).toFixed(2)} د.ك مع ديمة</p>
+      {product.wateringGuide && <details className="plant-guide">
+        <summary data-testid={`watering-guide-${product.id}`}><Droplets size={14} /> دليل الري والعناية</summary>
+        <p>{product.wateringGuide}</p>
+      </details>}
       <div className="card-bottom">
         <div className="swatches" aria-label="اختر لون الأصيص">
           {product.colors?.map((swatch) => <button key={swatch.hex} type="button" className={`swatch${color === swatch.hex ? ' selected' : ''}`} style={{ backgroundColor: swatch.hex }} aria-label={`لون ${swatch.name}`} aria-pressed={color === swatch.hex} onMouseEnter={() => setColor(swatch.hex)} onFocus={() => setColor(swatch.hex)} onClick={() => setColor(swatch.hex)} data-testid={`swatch-${product.id}-${swatch.name}`} />)}

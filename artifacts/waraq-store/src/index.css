@@ -114,6 +114,12 @@ button:focus-visible, a:focus-visible, input:focus-visible { outline: 3px solid 
 .price { font-size:17px;font-weight:700;color:#2a3b32;white-space:nowrap; }
 .original-price { margin-top:3px;color:#9a9b92;font-size:11px;text-decoration:line-through;white-space:nowrap; }
 .installment { margin:3px 0 13px;text-align:right;direction:rtl;color:#8b9188;font-size:11px;line-height:1.4; }
+.plant-guide { margin:0 0 12px;color:#65776b;font-size:12px; }
+.plant-guide summary { display:flex;align-items:center;gap:5px;cursor:pointer;list-style:none;width:max-content; }
+.plant-guide summary::-webkit-details-marker { display:none; }
+.plant-guide summary svg { color:#8ea89d; }
+.plant-guide[open] summary { color:#2a3b32;font-weight:700; }
+.plant-guide p { margin:8px 0 0;padding:9px 11px;border-radius:5px;background:#eef2eb;color:#59695e;font-size:12px;line-height:1.65; }
 .card-bottom { display:flex;align-items:center;justify-content:space-between;gap:8px; }
 .swatches { display:flex;align-items:center;gap:7px; }
 .swatch { width:21px;height:21px;border:2px solid #faf9f5;outline:1px solid transparent;border-radius:50%;padding:0; }

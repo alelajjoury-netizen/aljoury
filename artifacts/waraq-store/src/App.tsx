@@ -7,14 +7,14 @@ import NotFound from '@/pages/not-found';
 import { CartDrawer, type CartLine } from '@/components/CartDrawer';
 import { PlantDoctor } from '@/components/PlantDoctor';
 import { ProductCard, type Product } from '@/components/ProductCard';
-import { Heart, House, Leaf, MessageCircle, ShoppingBag, Sparkles, Sprout } from 'lucide-react';
+import { Droplets, Heart, House, Leaf, MessageCircle, ShoppingBag, Sparkles, Sprout } from 'lucide-react';
 import { Route, Switch, useLocation, Router as WouterRouter } from 'wouter';
 
 const queryClient = new QueryClient();
 const products: Product[] = [
-  { id: 'monstera', name: 'مونستيرا دليسيوسا', category: 'plants', label: 'الأكثر طلباً', description: 'أوراق كبيرة تعطي حضوراً هادئاً للمكان.', price: 12, originalPrice: 14.5, care: 'سهلة العناية', art: 'monstera', colors: [{ name: 'طيني', hex: '#c87d55' }, { name: 'عاجي', hex: '#d9d3c3' }, { name: 'أخضر زيتوني', hex: '#78846d' }] },
-  { id: 'snake', name: 'سانسيفيريا', category: 'plants', label: 'قليلة العناية', description: 'رفيقة صبورة تناسب المكتب أو غرفة النوم.', price: 8.75, care: 'سهلة جداً', art: 'snake', colors: [{ name: 'طيني', hex: '#c87d55' }, { name: 'رملي', hex: '#c4ae8e' }, { name: 'أخضر زيتوني', hex: '#78846d' }] },
-  { id: 'pothos', name: 'بوتس معلّق', category: 'plants', label: 'اختيارنا', description: 'أوراق متدلية تضيف لمسة حياة للرفوف.', price: 7.25, care: 'سهلة العناية', art: 'pothos', colors: [{ name: 'عاجي', hex: '#d9d3c3' }, { name: 'طيني', hex: '#c87d55' }, { name: 'أخضر زيتوني', hex: '#78846d' }] },
+  { id: 'monstera', name: 'مونستيرا دليسيوسا', category: 'plants', label: 'الأكثر طلباً', description: 'أوراق كبيرة تعطي حضوراً هادئاً للمكان.', price: 12, originalPrice: 14.5, care: 'سهلة العناية', wateringGuide: 'اسقيها عندما يجف أول 2–3 سم من التربة، عادةً كل 7–10 أيام. تفضّل ضوءاً ساطعاً غير مباشر.', art: 'monstera', colors: [{ name: 'طيني', hex: '#c87d55' }, { name: 'عاجي', hex: '#d9d3c3' }, { name: 'أخضر زيتوني', hex: '#78846d' }] },
+  { id: 'snake', name: 'سانسيفيريا', category: 'plants', label: 'قليلة العناية', description: 'رفيقة صبورة تناسب المكتب أو غرفة النوم.', price: 8.75, care: 'سهلة جداً', wateringGuide: 'اتركي التربة تجف تماماً بين الريات، غالباً كل 2–3 أسابيع. تناسب الضوء الخفيف إلى الساطع غير المباشر.', art: 'snake', colors: [{ name: 'طيني', hex: '#c87d55' }, { name: 'رملي', hex: '#c4ae8e' }, { name: 'أخضر زيتوني', hex: '#78846d' }] },
+  { id: 'pothos', name: 'بوتس معلّق', category: 'plants', label: 'اختيارنا', description: 'أوراق متدلية تضيف لمسة حياة للرفوف.', price: 7.25, care: 'سهلة العناية', wateringGuide: 'اسقيه عندما يجف سطح التربة، تقريباً كل 7–10 أيام. يحب الضوء المتوسط أو الساطع غير المباشر.', art: 'pothos', colors: [{ name: 'عاجي', hex: '#d9d3c3' }, { name: 'طيني', hex: '#c87d55' }, { name: 'أخضر زيتوني', hex: '#78846d' }] },
   { id: 'ceramic-pot', name: 'أصيص حكاية', category: 'pots', label: 'صناعة يدوية', description: 'سيراميك بملمس طبيعي، قطعة فريدة لكل نبتة.', price: 6.5, art: 'pot', colors: [{ name: 'طيني', hex: '#c87d55' }, { name: 'عاجي', hex: '#d9d3c3' }, { name: 'أخضر زيتوني', hex: '#78846d' }] },
   { id: 'terracotta-pot', name: 'أصيص التيراكوتا', category: 'pots', label: 'فخار محلي', description: 'فخار مسامي يساعد الجذور على التنفس.', price: 4.75, art: 'pot', colors: [{ name: 'طيني', hex: '#c87d55' }, { name: 'رملي', hex: '#c4ae8e' }] },
   { id: 'soil-kit', name: 'عدة عناية بالتربة', category: 'care', label: 'أساسيات العناية', description: 'مزيج تربة متوازن وأدوات بسيطة لبداية موفقة.', price: 5.25, art: 'kit' },
@@ -91,6 +91,7 @@ function Home() {
 
       <div className="trust-strip" aria-label="مميزات ورق">
         <div className="trust-item"><Sprout size={18} /> نباتات مختارة بعناية</div>
+        <div className="trust-item"><Heart size={17} /> ضمان نمو 30 يوماً</div>
         <div className="trust-item"><Heart size={17} /> أصص يدوية بحب</div>
         <div className="trust-item"><Leaf size={18} /> عناية تناسب المبتدئين</div>
         <div className="trust-item"><Sparkles size={17} /> توصيل لكل الكويت</div>
