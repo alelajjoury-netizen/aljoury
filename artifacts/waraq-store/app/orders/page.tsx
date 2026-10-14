@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import { redirect } from 'next/navigation';
 import { getCurrentUser } from '../../lib/auth';
 import { connectDB } from '../../lib/db';
 import { Order } from '../../models/Order';
@@ -23,15 +24,7 @@ export default async function OrdersPage() {
   }
 
   if (!user) {
-    return (
-      <section className="section orders-page" dir="rtl">
-        <h1 className="section-title">طلباتي</h1>
-        <div className="empty-state">
-          <h2>سجّلي الدخول لمتابعة طلباتك</h2>
-          <Link href="/login" className="button-primary">دخول</Link>
-        </div>
-      </section>
-    );
+    redirect('/login?next=%2Forders');
   }
 
   try {

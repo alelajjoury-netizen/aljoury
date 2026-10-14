@@ -1,21 +1,22 @@
 import { NextResponse } from 'next/server';
-import { cookies } from 'next/headers';
-import { SESSION_COOKIE, verifySessionToken } from '../../../lib/auth';
+import { getCurrentUser } from '../../../lib/auth';
 import { connectDB } from '../../../lib/db';
 import { Order } from '../../../models/Order';
 
 export const dynamic = 'force-dynamic';
 
 export async function GET() {
-  const token = (await cookies()).get(SESSION_COOKIE)?.value;
-  const session = token ? await verifySessionToken(token) : null;
-  if (!session) {
-    return NextResponse.json({ error: 'سجّلي الدخول لعرض طلباتك.' }, { status: 401 });
-  }
-
   try {
+    const user = await getCurrentUser();
+    if (!user) {
+      return NextResponse.json(
+        { error: 'سجّلي الدخول لعرض طلباتك.' },
+        { status: 401, headers: { 'Cache-Control': 'no-store' } },
+      );
+    }
+
     await connectDB();
-    const orders = await Order.find({ user: session.userId })
+    const orders = await Order.find({ user: user.id })
       .sort({ createdAt: -1 })
       .lean();
     return NextResponse.json(

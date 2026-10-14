@@ -12,7 +12,13 @@ const signupSchema = z.object({
 });
 const loginSchema = signupSchema.pick({ email: true, password: true });
 
-export function AuthForm({ mode }: { mode: 'login' | 'signup' }) {
+export function AuthForm({
+  mode,
+  redirectTo = '/',
+}: {
+  mode: 'login' | 'signup';
+  redirectTo?: string;
+}) {
   const router = useRouter();
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
@@ -40,7 +46,7 @@ export function AuthForm({ mode }: { mode: 'login' | 'signup' }) {
       });
       const data = (await response.json()) as { error?: string };
       if (!response.ok) throw new Error(data.error ?? 'تعذر تسجيل الدخول.');
-      router.push('/');
+      router.push(redirectTo);
       router.refresh();
     } catch (cause) {
       setError(cause instanceof Error ? cause.message : 'حدث خطأ غير متوقع.');
