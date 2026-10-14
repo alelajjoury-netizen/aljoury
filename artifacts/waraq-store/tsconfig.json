@@ -5,11 +5,14 @@
   "compilerOptions": {
     "noEmit": true,
     "jsx": "preserve",
-    "lib": ["esnext", "dom", "dom.iterable"],
+    "lib": ["dom", "dom.iterable", "esnext"],
     "resolveJsonModule": true,
     "allowImportingTsExtensions": true,
     "moduleResolution": "bundler",
     "types": ["node", "vite/client"],
+    "allowJs": true,
+    "incremental": true,
+    "plugins": [{ "name": "next" }],
     "paths": {
       "@/*": ["./src/*"]
     }

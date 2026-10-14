@@ -15,13 +15,19 @@ localPort = 21532
 run = "pnpm --filter @workspace/waraq-store run dev"
 
 [services.production]
-build = [ "pnpm", "--filter", "@workspace/waraq-store", "run", "build" ]
-serve = "static"
-publicDir = "artifacts/waraq-store/dist/public"
 
-[[services.production.rewrites]]
-from = "/*"
-to = "/index.html"
+[services.production.build]
+args = ["pnpm", "--filter", "@workspace/waraq-store", "run", "build"]
+
+[services.production.build.env]
+NODE_ENV = "production"
+
+[services.production.run]
+args = ["pnpm", "--filter", "@workspace/waraq-store", "run", "serve"]
+
+[services.production.run.env]
+PORT = "21532"
+NODE_ENV = "production"
 
 [services.env]
 PORT = "21532"
