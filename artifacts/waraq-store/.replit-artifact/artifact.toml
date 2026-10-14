@@ -1,0 +1,28 @@
+kind = "web"
+previewPath = "/"
+title = "وَرَق — أخضر يجدد بيتك"
+description = "متجر عربي متجاوب للنباتات المنزلية سهلة العناية والأحواض اليدوية، يقدم تفاعلاً مباشراً لتخصيص الأحواض وسلة مشتريات واختبار طبيب النباتات."
+version = "1.0.0"
+id = "artifacts/waraq-store"
+router = "path"
+
+[[services]]
+name = "web"
+paths = [ "/" ]
+localPort = 21532
+
+[services.development]
+run = "pnpm --filter @workspace/waraq-store run dev"
+
+[services.production]
+build = [ "pnpm", "--filter", "@workspace/waraq-store", "run", "build" ]
+serve = "static"
+publicDir = "artifacts/waraq-store/dist/public"
+
+[[services.production.rewrites]]
+from = "/*"
+to = "/index.html"
+
+[services.env]
+PORT = "21532"
+BASE_PATH = "/"
