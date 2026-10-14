@@ -3,7 +3,7 @@ import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import { ErrorBoundary } from '@/components/error-boundary';
 import { Toaster } from '@/components/ui/toaster';
 import { TooltipProvider } from '@/components/ui/tooltip';
-import NotFound from '@/pages/not-found';
+import NotFound from '@/components/LegacyNotFound';
 import { CartDrawer, type CartLine } from '@/components/CartDrawer';
 import { PlantDoctor } from '@/components/PlantDoctor';
 import { ProductCard, type Product } from '@/components/ProductCard';
