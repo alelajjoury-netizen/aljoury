@@ -1,4 +1,6 @@
-import { model, models, Schema } from 'mongoose';
+import mongoose from 'mongoose';
+
+const { Schema } = mongoose;
 
 const potColorSchema = new Schema(
   {
@@ -29,4 +31,4 @@ const productSchema = new Schema(
 
 productSchema.index({ category: 1, featured: -1, createdAt: -1 });
 
-export const Product = models.Product ?? model('Product', productSchema);
+export const Product = mongoose.models.Product ?? mongoose.model('Product', productSchema);

@@ -1,1 +1,2 @@
 - [Next app validator migration](next-app-validator.md) — this mixed Vite-to-Next workspace needs a narrow exclusion for Next's stale generated route validator.
+- [Mongoose on Node 24](mongoose-node24-esm.md) — use the default Mongoose import in ESM; named `models` imports failed in the seed script.
