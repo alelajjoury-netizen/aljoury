@@ -15,31 +15,6 @@
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
       "static/chunks/app/page.js"
-    ],
-    "/orders/page": [
-      "static/chunks/webpack.js",
-      "static/chunks/main-app.js",
-      "static/chunks/app/orders/page.js"
-    ],
-    "/api/orders/route": [
-      "static/chunks/webpack.js",
-      "static/chunks/main-app.js",
-      "static/chunks/app/api/orders/route.js"
-    ],
-    "/login/page": [
-      "static/chunks/webpack.js",
-      "static/chunks/main-app.js",
-      "static/chunks/app/login/page.js"
-    ],
-    "/api/auth/me/route": [
-      "static/chunks/webpack.js",
-      "static/chunks/main-app.js",
-      "static/chunks/app/api/auth/me/route.js"
-    ],
-    "/api/auth/signup/route": [
-      "static/chunks/webpack.js",
-      "static/chunks/main-app.js",
-      "static/chunks/app/api/auth/signup/route.js"
     ]
   }
 }
