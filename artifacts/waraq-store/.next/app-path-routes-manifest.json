@@ -1,0 +1,17 @@
+{
+  "/_not-found/page": "/_not-found",
+  "/api/auth/me/route": "/api/auth/me",
+  "/api/auth/login/route": "/api/auth/login",
+  "/api/auth/logout/route": "/api/auth/logout",
+  "/api/auth/signup/route": "/api/auth/signup",
+  "/api/orders/route": "/api/orders",
+  "/api/products/route": "/api/products",
+  "/api/products/[slug]/route": "/api/products/[slug]",
+  "/page": "/",
+  "/products/[slug]/page": "/products/[slug]",
+  "/cart/page": "/cart",
+  "/products/page": "/products",
+  "/orders/page": "/orders",
+  "/login/page": "/login",
+  "/signup/page": "/signup"
+}
